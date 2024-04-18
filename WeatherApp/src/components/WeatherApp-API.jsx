@@ -55,29 +55,30 @@ const WeatherAppInfo = () => {
 
   return (
     <Container>
-      <h1 className="mt-4 mb-4">Weather App Information</h1>
-      <div className="mb-4">
+      <h1 className="mt-4 mb-4" style={{ textAlign: 'center', color: '#ffc0cb' }}>Weather App Information</h1>
+      <div className="mb-4" style={{ textAlign: 'center' }}>
         <input
           type="text"
           value={city}
           onChange={handleChangeCity}
           placeholder="Enter city name"
           className="mr-2"
+          style={{ padding: '5px', borderRadius: '5px', border: '1px solid #ffc0cb' }}
         />
-        <Button variant="primary" onClick={handleSearch}>
+        <Button variant="primary" onClick={handleSearch} style={{ color: 'pink', border: '1px solid #ffc0cb'}}>
           Search
         </Button>
       </div>
       {error && <Alert variant="danger">{error}</Alert>}
-      <Row style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <Row style={{ display: 'flex', justifyContent: 'center' }}>
         {cities.map((cityData, index) => (
-          <Card key={index} style={{ width: '18rem', margin: '10px', border: '1px solid #dee2e6' }}>
+          <Card key={index} style={{ width: '18rem', margin: '10px', border: '1px solid #ffc0cb', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)' }}>
             <Card.Body>
-              <Card.Title>{cityData.name}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Temperature: {cityData.main.temp} °C</Card.Subtitle>
-              <Card.Text>Weather: {cityData.weather[0].description}</Card.Text>
-              <Card.Text>Wind Speed: {cityData.wind.speed} m/s</Card.Text>
-              <Card.Text>Humidity: {cityData.main.humidity} %</Card.Text>
+              <Card.Title style={{ color: 'pink' }}>{cityData.name}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted" style={{ color: 'pink' }}>Temperature: {cityData.main.temp} °C</Card.Subtitle>
+              <Card.Text style={{ color: 'pink' }}>Weather: {cityData.weather[0].description}</Card.Text>
+              <Card.Text style={{ color: 'pink' }}>Wind Speed: {cityData.wind.speed} m/s</Card.Text>
+              <Card.Text style={{ color: 'pink' }}>Humidity: {cityData.main.humidity} %</Card.Text>
               <Button variant="danger" onClick={() => handleRemoveCard(index)}>Remove</Button>
             </Card.Body>
           </Card>
